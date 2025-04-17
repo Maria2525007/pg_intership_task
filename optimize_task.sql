@@ -60,7 +60,7 @@ WHERE t_id NOT IN (SELECT id FROM t1);
 > 4 min
    */
 
--- Решение (не удалось)
+-- Решение
 
 CREATE INDEX idx_t1_id ON t1 (id);
 CREATE INDEX idx_t2_t_id_day ON t2 (t_id) INCLUDE (day);
@@ -88,7 +88,7 @@ Execution Time: 2181.723 ms
 
    */
 
--- Задание 4 (запрос некорректен: t2.t_id внутри подзапроса не виден)
+-- Задание 4
 
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT day
@@ -103,7 +103,7 @@ Execution Time: 9652.617 ms
    */
 
 
--- Решение ()
+-- Решение
 CREATE INDEX idx_t1_id ON t1(id);
 CREATE INDEX idx_t2_t_id_day ON t2(t_id, day);
 
